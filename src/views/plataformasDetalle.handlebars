@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalles de la Plataforma</title>
+</head>
+<body>
+  <h1>{{name}}</h1>
+  <p>ID: {{id}}</p>
+  <p>Fleet: {{fleet}}</p>
+  <img src="{{img}}" alt="{{name}}">
+  <p>Último informe: <a href="{{lastReport}}">{{lastReport}}</a></p>
+
+  <h2>Sensores:</h2>
+  <ul>
+    {{#each data.sensors}}
+    <li>
+      <p>ID: {{this.id}}</p>
+      <p>Nombre: {{this.name}}</p>
+      <p>Tipo: {{this.type}}</p>
+    </li>
+    
+    {{/each}}
+  </ul>
+  <form action="/submit" method="GET">
+    <label for="username" style="position: absolute; left: -9999px;">Username</label>
+    <input type="text" id="username" name="username" placeholder="Username">
+
+    <!-- Otros campos del formulario... -->
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>

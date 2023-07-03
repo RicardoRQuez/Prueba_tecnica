@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Plataformas</title>
+</head>
+
+<body>
+    <h1>Listado de Plataformas</h1>
+    <p>Página {{platformsData.pageNumber}} de {{platformsData.totalPages}}</p>
+    <ul>
+        {{#each platformsData.data}}
+        <li>
+            <a href="/plataformas/detalle/{{this.id}}">
+                <h2>{{this.name}}</h2>
+            </a>
+            <img src="{{this.img}}" alt="{{this.name}}">
+            <p>ID: {{this.id}}</p>
+            <p>Fleet: {{this.fleet}}</p>
+        </li>
+        {{/each}}
+    </ul>
+    {{#if prevPageNumber}}
+    <a href="/plataformas?pageNumber={{prevPageNumber}}">Página anterior</a>
+    {{/if}}
+    {{#if nextPageNumber}}
+    <a href="/plataformas?pageNumber={{nextPageNumber}}">Página siguiente</a>
+    {{/if}}
+
+</body>
+
+</html>
